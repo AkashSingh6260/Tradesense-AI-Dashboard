@@ -18,13 +18,14 @@ export function DataProvider({ children }) {
     useEffect(() => {
         const load = async () => {
             try {
+                const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:5000';
                 const [mi, tg, tl, ai, ph, sa] = await Promise.all([
-                    fetch('http://localhost:5000/api/market-indices').then(res => res.json()),
-                    fetch('http://localhost:5000/api/top-gainers').then(res => res.json()),
-                    fetch('http://localhost:5000/api/top-losers').then(res => res.json()),
-                    fetch('http://localhost:5000/api/ai-recommendations').then(res => res.json()),
-                    fetch('http://localhost:5000/api/portfolio-holdings').then(res => res.json()),
-                    fetch('http://localhost:5000/api/stocks-analysis').then(res => res.json())
+                    fetch(`${API_BASE}/api/market-indices`).then(res => res.json()),
+                    fetch(`${API_BASE}/api/top-gainers`).then(res => res.json()),
+                    fetch(`${API_BASE}/api/top-losers`).then(res => res.json()),
+                    fetch(`${API_BASE}/api/ai-recommendations`).then(res => res.json()),
+                    fetch(`${API_BASE}/api/portfolio-holdings`).then(res => res.json()),
+                    fetch(`${API_BASE}/api/stocks-analysis`).then(res => res.json())
                 ]);
 
                 const sectorData = [
