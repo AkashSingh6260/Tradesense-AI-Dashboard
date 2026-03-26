@@ -1,0 +1,36 @@
+.analysis-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 16px;
+}
+
+.stock-selector {
+    appearance: none;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 10px 40px 10px 14px;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color var(--transition);
+    min-width: 260px;
+}
+
+.stock-selector:hover,
+.stock-selector:focus {
+    border-color: var(--accent-purple-light);
+    outline: none;
+}
+
+.stock-selector option {
+    background: var(--bg-card);
+    color: var(--text-primary);
+}
+
+@media (max-width: 900px) {
+    .analysis-grid {
+        grid-template-columns: 1fr;
+    }
+}
